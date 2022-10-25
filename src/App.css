@@ -204,6 +204,7 @@ p {
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
+  font-size: 1.5rem;
 }
 
 /* Margin */
@@ -434,4 +435,12 @@ a {
 a:hover {
   color: var(--color-dark);
   font-size: 1.5rem;
+}
+
+.num-display {
+  background: #ff6a95;
+  color: #fff;
+  position: absolute;
+  top: -10px;
+  left: -10px;
 }
