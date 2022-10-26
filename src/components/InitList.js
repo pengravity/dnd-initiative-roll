@@ -61,6 +61,13 @@ const InitList = () => {
     setInit(listElement.init);
   };
 
+  const handleDeleteElement = (id) => {
+    if (window.confirm('Are you sure you want to delete? ') === true) {
+      const newList = listOrder.filter((element) => element.id !== id);
+      setListOrder(newList);
+    }
+  };
+
   return (
     <div className=' --center-all'>
       <h1>Initiative List</h1>
@@ -97,6 +104,7 @@ const InitList = () => {
           key={element.name}
           element={element}
           handleClick={editElement}
+          deleteElement={handleDeleteElement}
         />
       ))}
     </div>
