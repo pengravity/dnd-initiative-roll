@@ -91,6 +91,20 @@ const InitList = () => {
     );
   };
 
+  const rollMonsters = () => {
+    setListOrder(
+      listOrder.map((element) => {
+        if (element.monster === true)
+          return {
+            ...element,
+            init: Math.floor(Math.random() * 20) + 1,
+          };
+
+        return element;
+      })
+    );
+  };
+
   return (
     <div className=' --center-all'>
       <h1>Initiative List</h1>
@@ -120,9 +134,14 @@ const InitList = () => {
           {editing ? 'Edit' : 'Add'}
         </button>
       </form>{' '}
-      <button onClick={sortByInit} className='--btn --btn-primary'>
-        Sort
-      </button>
+      <span className='--flex-center'>
+        <button onClick={sortByInit} className='--btn --btn-primary'>
+          Sort
+        </button>
+        <button onClick={rollMonsters} className='--btn --btn-danger'>
+          Roll
+        </button>
+      </span>
       {listOrder.map((element) => (
         <InitElement
           key={element.name}
