@@ -1,15 +1,13 @@
-const InitElement = ({ element, handleInitClick }) => {
+const InitElement = ({ element, handleClick }) => {
   return (
-    <div className='--card '>
+    <div className='--card ' onClick={() => handleClick(element.id)}>
       <div
         className={`${
           element.player ? 'player' : 'monster'
-        } --flex-between --p2`}
+        } --flex-between --p`}
       >
         <span className='--pointer'>{element.name}</span>
-        <span onClick={() => handleInitClick(element.id)} className='--pointer'>
-          {element.init}
-        </span>
+        <span className='--pointer'>{element.init}</span>
       </div>
     </div>
   );

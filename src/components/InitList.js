@@ -8,6 +8,7 @@ const InitList = () => {
   const [name, setName] = useState('');
   const [init, setInit] = useState('');
   const [id, setId] = useState('');
+  const [editing, setEditing] = useState(false);
 
   const sortByInit = () => {
     setListOrder(
@@ -22,16 +23,42 @@ const InitList = () => {
 
     if (!name) {
       alert('Please enter name');
+    } else if (name && editing) {
+      setListOrder(
+        listOrder.map((element) => {
+          if (element.id === id) {
+            return {
+              ...element,
+              name,
+              init,
+            };
+          }
+          return element;
+        })
+      );
+      setName('');
+      setInit(0);
+      setEditing(false);
+      setId(null);
     } else {
-      const newWarrior = {
+      const newElement = {
         id: Date.now(),
         name,
         init: 0,
       };
-      setListOrder([...listOrder, newWarrior]);
+      setListOrder([...listOrder, newElement]);
       setName('');
       setInit(0);
     }
+  };
+
+  const editElement = (id) => {
+    const listElement = listOrder.find((element) => element.id === id);
+
+    setEditing(true);
+    setId(id);
+    setName(listElement.name);
+    setInit(listElement.init);
   };
 
   return (
@@ -58,13 +85,19 @@ const InitList = () => {
             onChange={(e) => setInit(e.target.value)}
           />
         </div>
-        <button className='--btn --btn-success --btn-block'>Add</button>
+        <button className='--btn --btn-success --btn-block'>
+          {editing ? 'Edit' : 'Add'}
+        </button>
       </form>{' '}
       <button onClick={sortByInit} className='--btn --btn-primary'>
         Sort
       </button>
       {listOrder.map((element) => (
-        <InitElement key={element.name} element={element} />
+        <InitElement
+          key={element.name}
+          element={element}
+          handleClick={editElement}
+        />
       ))}
     </div>
   );
