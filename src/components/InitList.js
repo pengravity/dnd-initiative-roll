@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
+import useLocalStorage from 'use-local-storage';
 
 import Data from '../Data';
 import InitElement from './InitElement';
 
 const InitList = () => {
-  const [listOrder, setListOrder] = useState(Data);
+  //const [listOrder, setListOrder] = useState(Data);
+  const [listOrder, setListOrder] = useLocalStorage('listOrder', [Data]);
+
   const [name, setName] = useState('');
   const [init, setInit] = useState('');
   const [id, setId] = useState('');
+  const [monster, setMonster] = useState(false);
   const [editing, setEditing] = useState(false);
 
   const sortByInit = () => {
@@ -45,6 +49,7 @@ const InitList = () => {
         id: Date.now(),
         name,
         init: 0,
+        monster,
       };
       setListOrder([...listOrder, newElement]);
       setName('');
@@ -66,6 +71,24 @@ const InitList = () => {
       const newList = listOrder.filter((element) => element.id !== id);
       setListOrder(newList);
     }
+  };
+
+  const handleToggleMonster = (id) => {
+    setListOrder(
+      listOrder.map((element) => {
+        if (element.id === id) {
+          if (element.monster === true)
+            return {
+              ...element,
+              monster: false,
+            };
+          else {
+            return { ...element, monster: true };
+          }
+        }
+        return element;
+      })
+    );
   };
 
   return (
@@ -92,6 +115,7 @@ const InitList = () => {
             onChange={(e) => setInit(e.target.value)}
           />
         </div>
+
         <button className='--btn --btn-success --btn-block'>
           {editing ? 'Edit' : 'Add'}
         </button>
@@ -105,6 +129,7 @@ const InitList = () => {
           element={element}
           handleClick={editElement}
           deleteElement={handleDeleteElement}
+          toggleMonster={handleToggleMonster}
         />
       ))}
     </div>
