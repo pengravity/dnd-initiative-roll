@@ -32,6 +32,7 @@ html {
 
 body {
   font-family: var(--font-family);
+  background-color: #5b8bb8;
 }
 
 section {
@@ -108,6 +109,16 @@ section {
 .--center-all {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.--center-left {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   width: 100%;
@@ -204,7 +215,8 @@ p {
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  width: 20%;
 }
 
 /* Margin */
@@ -425,6 +437,10 @@ p {
   border-radius: 50%;
 }
 
+.--pointer {
+  cursor: pointer;
+}
+
 a {
   font-size: 1.4rem;
   color: var(--dark-blue);
@@ -443,4 +459,14 @@ a:hover {
   position: absolute;
   top: -10px;
   left: -10px;
+}
+
+.player {
+  background: #017434;
+  color: white;
+}
+
+.monster {
+  background: #860202;
+  color: white;
 }
