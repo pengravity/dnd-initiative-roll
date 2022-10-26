@@ -20,14 +20,18 @@ const InitList = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newWarrior = {
-      id: Date.now(),
-      name,
-      init,
-    };
-    setListOrder([...listOrder, newWarrior]);
-    setName('');
-    setInit('');
+    if (!name) {
+      alert('Please enter name');
+    } else {
+      const newWarrior = {
+        id: Date.now(),
+        name,
+        init: 0,
+      };
+      setListOrder([...listOrder, newWarrior]);
+      setName('');
+      setInit(0);
+    }
   };
 
   return (
@@ -40,7 +44,7 @@ const InitList = () => {
             type='text'
             placeholder='name'
             name='name'
-            //  value={name}
+            value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
@@ -50,7 +54,7 @@ const InitList = () => {
             type='text'
             placeholder='init'
             name='init'
-            // value={date}
+            value={init}
             onChange={(e) => setInit(e.target.value)}
           />
         </div>
