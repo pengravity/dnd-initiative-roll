@@ -15,9 +15,7 @@ const DiceRoll = () => {
       dices.push(Math.floor(Math.random() * dicesSides) + 1);
     }
     setDicesRolls(dices);
-    // console.log(dicesRolls);
-    // console.log(noOfDices, dicesSides);
-    // console.log(sumRolls);
+
     sumRolls();
   };
 
@@ -32,22 +30,16 @@ const DiceRoll = () => {
   const sumRolls = (arrayOfDices) => {
     let initialValue = 0;
     let sum = dicesRolls.reduce((totalValue, currentValue) => {
-      console.log(`totalValue: ${totalValue}, currentValue: ${currentValue}`);
       return totalValue + currentValue;
     }, initialValue);
-    console.log('sum', sum);
     return sum;
   };
-
-  //   useEffect(() => {
-  //     sumRolls();
-  //   }, [dicesRolls]);
 
   return (
     <>
       <div className='flex-container'>
         <h3>Dices Roll</h3>
-        <form className='form --form-control'>
+        <form className='form --form-control '>
           <div>
             <label>Number of Dices</label>
             <input
@@ -69,17 +61,19 @@ const DiceRoll = () => {
             />
           </div>
         </form>
-        <button onClick={rollDices} className='--btn --btn-primary'>
-          Roll Dice
-        </button>
-        <button onClick={sortRolls} className='--btn --btn-danger'>
-          Sort Rolls
-        </button>
+        <span className='--flex-center'>
+          <button onClick={rollDices} className='--btn --btn-primary'>
+            Roll Dice
+          </button>
+          <button onClick={sortRolls} className='--btn --btn-danger'>
+            Sort Rolls
+          </button>
+        </span>
         <ul>
           {dicesRolls.map((dice, i) => (
             <div key={i} className='--ml2'>
               {' '}
-              <h4>{dice}</h4>
+              <h4>{`${i + 1}:  ${dice}`}</h4>
             </div>
           ))}
           <h4>Sum: {sumRolls(dicesRolls)} </h4>
