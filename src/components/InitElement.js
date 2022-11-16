@@ -1,6 +1,6 @@
 import { RiDeleteBin5Fill } from 'react-icons/ri';
 import { BsToggleOff } from 'react-icons/bs';
-import { BsToggleOn } from 'react-icons/bs';
+// import { BsToggleOn } from 'react-icons/bs';
 
 const InitElement = ({
   element,
