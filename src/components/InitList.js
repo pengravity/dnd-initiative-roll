@@ -139,7 +139,7 @@ const InitList = () => {
           Sort
         </button>
         <button onClick={rollMonsters} className='--btn --btn-danger'>
-          Roll
+          Roll Red
         </button>
       </span>
       {listOrder.map((element) => (

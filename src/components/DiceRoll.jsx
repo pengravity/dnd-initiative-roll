@@ -77,6 +77,7 @@ const DiceRoll = () => {
             </div>
           ))}
           <h4>Sum: {sumRolls(dicesRolls)} </h4>
+          <h4>Avg: {(sumRolls(dicesRolls) / dicesRolls.length).toFixed(2)} </h4>
         </ul>
       </div>
     </>

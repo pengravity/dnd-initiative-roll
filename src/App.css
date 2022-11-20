@@ -13,6 +13,7 @@
 
   --color-purple: #9d0191;
   --color-orange: #ff7722;
+  --color-violet: rgb(153, 58, 216);
 
   --color-primary: #007bff;
   --color-success: #28a745;
@@ -32,7 +33,7 @@ html {
 
 body {
   font-family: var(--font-family);
-  background-color: #5b8bb8;
+  background-color: #ba97e7;
 }
 
 section {
