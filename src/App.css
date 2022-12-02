@@ -41,10 +41,32 @@ section {
   padding: 8rem 0;
 }
 
+.flex-main-container {
+  display: flex;
+}
+
+.flex-left {
+  display: flex;
+  flex-direction: column;
+  /* width: 25%; */
+  height: 100%;
+}
+
+/* .middle {
+  width: 50%;
+  height: 100%;
+  float: left;
+} */
+
 .container {
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.box {
+  display: flex;
+  position: relative;
 }
 
 .flex-container {
@@ -228,8 +250,8 @@ p {
   border-radius: 5px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-  font-size: 1.3rem;
-  width: 12%;
+  font-size: 1.2rem;
+  /* width: 100%; */
 }
 
 /* Margin */
