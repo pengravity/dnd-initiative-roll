@@ -107,7 +107,7 @@ const InitList = () => {
 
   return (
     <div className='flex-container '>
-      <h3>Initiative List</h3>
+      <h3 className='--flex-center'>Initiative List</h3>
       <form onSubmit={handleSubmit} className='form --form-control'>
         <div>
           <label htmlFor='name'>Name:</label>
